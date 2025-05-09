@@ -1,4 +1,4 @@
-import pytest # trraz a biblioteca de testes
+import pytest # traz a biblioteca de testes
 from src.app import create_app
 from src.model.colaborador_model import Colaborador
 import time #manipular o tempo
