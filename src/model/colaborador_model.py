@@ -9,7 +9,7 @@ class Colaborador (db.Model): # mapeia ai e cria a entidade
     id = Column(Integer, primary_key=True, autoincrement=True) # id INT AUTO_INCREMENT PRIMARY KEY
 
     nome = Column(String(255)) # nome VARCHAR(255)
-    email = Column(String(150))
+    email = Column(String(100))
     senha = Column(String(255))
     cargo = Column(String(100))
     salario = Column(DECIMAL(10,2))
