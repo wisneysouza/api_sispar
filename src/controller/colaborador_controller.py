@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify
 #jsonify e um retorno, responsavel por transformar os dados em json e envia o status cold ex 404, 504 e etc.
 from src.model.colaborador_model import Colaborador
 from src.model import db
-import src.security.security import hash_senha, checar_senha
+from src.security.security import hash_senha, checar_senha
 from flasgger import swag_from
 
 #request -> trabalha com as requisições. Pega o conteúdo da requisição
@@ -57,12 +57,12 @@ def atualizar_dados_do_colaborador(id_colaborador):
             break
     if 'nome' in dados_requisição:
         colaborador_encontrado ['nome'] = dados_requisição['nome']
-    if 'cargo' in dados_encontrado['cargo'] = dados_requisição['cargo']
+    
 
-    returnjsonify({'mensagem': 'Dados do colaborador atualizados com sucesso'}), 200
+    return jsonify({'mensagem': 'Dados do colaborador atualizados com sucesso'}), 200
 
-    @bp_colaborador.route('/login', methods=['POST'])
-    def login():
+@bp_colaborador.route('/login', methods=['POST'])
+def login():
 
         dados_requisição = request.get_json()
 
@@ -83,7 +83,7 @@ def atualizar_dados_do_colaborador(id_colaborador):
         print(f'dados:{colaborador} é do tipo {type(colaborador)}')
         print('*'*100)
 
-        if not colaborador
+        if not colaborador:
             return jsonify({'mensagem' : 'Usuario não encontrado'}),404
         
         colaborador = colaborador.to_dict()
