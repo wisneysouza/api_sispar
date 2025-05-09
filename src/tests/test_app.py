@@ -1,7 +1,7 @@
-import pytest
+import pytest # trraz a biblioteca de testes
 from src.app import create_app
 from src.model.colaborador_model import Colaborador
-import time
+import time #manipular o tempo
 
 
 # -----------------------------CONFIGURAÇÕES ------------------------------
@@ -31,4 +31,4 @@ def test_desempenho_requisicao_get(client):
 
     fim = time.time() - comeco
 
-    assert fim < 1.0 # segundos
+    assert fim < 0.2 # segundos

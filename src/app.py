@@ -28,13 +28,11 @@ def create_app():
     CORS(app, origins="*")#NUNCA COLOCAR O * EM CORS
     # <-- Adicione a autorização do cors para todas as rotas na aplicação.
     app.register_blueprint(bp_colaborador)
-
     app.config.from_object(Config)
     db.init_app(app)
 
-    with app.app_context():
-        db.create_all()
-
     Swagger(app, config=swagger_config)
 
+    with app.app_context():
+        db.create_all()
     return app
