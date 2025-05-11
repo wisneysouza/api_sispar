@@ -51,7 +51,7 @@ def atualizar_dados_do_colaborador(id_colaborador):
 
     dados_requisição = request.get_json()
 
-    for colaborador in dados:
+    for colaborador in dados_requisição:
         if colaborador['id'] == id_colaborador:
             colaborador_encontrado = colaborador
             break

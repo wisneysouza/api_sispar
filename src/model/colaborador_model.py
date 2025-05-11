@@ -3,11 +3,12 @@ from sqlalchemy.schema import Column # Traz o recurso que transforma atributos e
 from sqlalchemy.types import String, DECIMAL, Integer # Traz o recurso que identifica os tipos de dados para as colunas
 
 class Colaborador (db.Model): # mapeia ai e cria a entidade
+    __tablename__ = "colaborador"
 
     #--------------------------------------Atributos----------------------------------------------
 
     id = Column(Integer, primary_key=True, autoincrement=True) # id INT AUTO_INCREMENT PRIMARY KEY
-
+    
     nome = Column(String(255)) # nome VARCHAR(255)
     email = Column(String(100))
     senha = Column(String(255))
@@ -24,15 +25,16 @@ class Colaborador (db.Model): # mapeia ai e cria a entidade
         self.salario = salario
 
         def to_dict(self) -> dict:
-           return {
-               'email': self.email,
-               'senha':self.senha
-           }
+            return {
+            'email': self.email,
+            'senha':self.senha
+        }
 
     def all_data(self) -> dict:
         return {
             'id': self.id,
             'nome': self.nome,
             'cargo': self.cargo,
-            'salario': self.salario
+            'salario': self.salario,
+            'email': self.email
         }

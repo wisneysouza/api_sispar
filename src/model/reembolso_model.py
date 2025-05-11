@@ -1,17 +1,18 @@
 from src.model import db
 from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.types import Integer, String, DECIMAL, DATE
+from sqlalchemy.types import Integer, String, DECIMAL, Date
 from sqlalchemy import func
+from datetime import date
 
 class Reembolso(db.Model): # Interpreta que essa classe vai ser o modelo para a entidade
-
+    __tablename__ = "reembolso"
     #---------------------ATRIBUTOS--------------------------------
-    id = Column(Integer, primary_key True, autoincremente=True)
-    colaborador = Column(String(150), nullabel=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    colaborador = Column(String(150), nullable=False)
     empresa = Column(String(50), nullable=False)#os nomes serão abreviados, por isso 50 caracteres
     num_prestacao = Column(Integer, nullable=False)
     descricao = Column(String(255))
-    data = Column(DATE, server_default=func.current_date(), nullable=False)
+    data = Column(Date, nullable=False, default=date.today)
     tipo_reembolso = Column(String(35), nullable=False)
     centro_custo = Column(String(50), nullable = False)
     ordem_interna = Column(String(50))
@@ -22,7 +23,9 @@ class Reembolso(db.Model): # Interpreta que essa classe vai ser o modelo para a 
     valor_km = Column(String(50))
     valor_faturado = Column(DECIMAL(10,2), nullable=False)#9999999999.11
     despesa = Column(DECIMAL(10,2))
-    id_colaborador = Column(Integer, ForeignKey(Column='colaborador.id'))
+    id_colaborador = Column(Integer, ForeignKey(column='colaborador.id'), nullable=False)
+    #id_colaborador = Column(Integer, ForeignKey('colaborador.id'))
+
     status = Column(String(25))
 
     #----------------------Metodo Construtor-------------------------------------
