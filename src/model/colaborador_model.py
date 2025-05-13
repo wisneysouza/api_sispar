@@ -24,7 +24,7 @@ class Colaborador (db.Model): # mapeia ai e cria a entidade
         self.cargo = cargo
         self.salario = salario
 
-        def to_dict(self) -> dict:
+    def to_dict(self) -> dict:
             return {
             'email': self.email,
             'senha':self.senha

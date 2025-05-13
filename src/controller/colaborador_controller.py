@@ -75,7 +75,7 @@ def login():
 
         #SELECT * FROM [TABELA]
         colaborador = db.session.execute(
-            db.select(Colaborador).Where(Colaborador.email == email)
+            db.select(Colaborador).where(Colaborador.email == email)
         ).scalar() # -> A linha de informação ou none
 
 
