@@ -35,3 +35,7 @@ parameters: #diz para a interface que os paramentros vira do corpo da requisiç�
 responses:
   201:
     description: Colaborador cadastrado com sucesso
+  400:
+    description: Erro na requisição
+  500:
+    description: Erro inesperado ao processar a requisição
