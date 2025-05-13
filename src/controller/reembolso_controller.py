@@ -44,3 +44,10 @@ def solicitar_novo_reembolso():
         status= dados_requisicao ['status']
     )
 
+    db.session.add(nova_solicitacao)
+    db.session.commit
+
+    return jsonify({'mensagem': 'solicitação cadastrada com sucesso'}),201
+
+
+
