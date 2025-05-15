@@ -14,6 +14,7 @@ bp_colaborador = Blueprint('colaborador', __name__, url_prefix= '/colaborador')
 
 
 @bp_colaborador.route('/todos-colaboradores')
+@swag_from("../docs/colaborador/todos-colaborador.yml")
 def pegar_dados_todos_colaboradores():
 
     colaboradores = db.session.execute(
